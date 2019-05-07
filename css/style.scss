@@ -1,0 +1,58 @@
+@keyframes move {
+  0% {
+    transform: translate(0px, -50px);
+  }
+
+  100% {
+    transform: translate(0px, 50px);
+  }
+  
+  
+}
+
+
+
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.topStories {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: inline;
+  
+}
+
+a:hover{
+  animation-name: move;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-delay: initial;
+  animation-timing-function: ease-in-out;
+}
+
+@media only screen and (min-width: 480px) {
+  .eachArticle {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 600px) {
+    .eachArticle {
+    width: 33%;
+  }
+}
+@media only screen and (min-width: 1240px) {
+    .eachArticle {
+    width: 25%;
+  }
+}

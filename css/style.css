@@ -1,0 +1,35 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.topStories {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+}
+
+@media only screen and (min-width: 480px) {
+  .eachArticle {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .eachArticle {
+    width: 33%;
+  }
+}
+@media only screen and (min-width: 1240px) {
+  .eachArticle {
+    width: 25%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
