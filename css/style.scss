@@ -3,10 +3,9 @@
     transform: translate(0px, -50px);
   }
 
-  100% {
-    transform: translate(0px, 50px);
-  }
-  
+  // 100% {
+  //   transform: translate(0px, 50px);
+  // }
   
 }
 
@@ -35,7 +34,7 @@ a {
 a:hover{
   animation-name: move;
   animation-duration: 1s;
-  animation-direction: alternate;
+  // animation-direction: alternate;
   animation-iteration-count: 1;
   animation-delay: initial;
   animation-timing-function: ease-in-out;
