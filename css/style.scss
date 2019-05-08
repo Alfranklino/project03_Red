@@ -10,7 +10,6 @@
 }
 
 
-
 body {
   background-color: black;
   color: white;
@@ -19,8 +18,11 @@ body {
 
 .topStories {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  // flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 3px;
+
 }
 
 a {
@@ -30,7 +32,7 @@ a {
   display: inline;
   
 }
-
+// TODO: Code to remove and replace by jquery+css3
 a:hover{
   animation-name: move;
   animation-duration: 1s;
@@ -41,17 +43,26 @@ a:hover{
 }
 
 @media only screen and (min-width: 480px) {
-  .eachArticle {
-    width: 100%;
+  // .eachArticle {
+  //   width: 100%;
+  // }
+  .topStories{
+    grid-template-columns: 1fr;
   }
 }
 @media only screen and (min-width: 600px) {
-    .eachArticle {
-    width: 33%;
+  //   .eachArticle {
+  //   width: 33%;
+  // }
+  .topStories{
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media only screen and (min-width: 1240px) {
-    .eachArticle {
-    width: 25%;
+  //   .eachArticle {
+  //   width: 25%;
+  // }
+  .topStories{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

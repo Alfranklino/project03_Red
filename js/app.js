@@ -7,14 +7,14 @@ $(document).ready(function () {
    const NYT_KEY = "WJGgFUA46EgQAmONzRmsZ10lzaNOd9I1"
    const IMG_REPLACE = "http://jewel1067.com/wp-content/uploads/news.jpg"
 
-   $("#selectSection").on("change", function () {
+   $(".selectSection").on("change", function () {
 
       // $.getJSON(`${NYT_API_LINK}` + `${NYT_KEY}`,
 
       //    function () {
       //       // Here is the succes property wjich we used in the Ajax form (let's see exo-17-1)
       //    })
-      let $searchedSection = $("#selectSection option:selected").val();
+      let $searchedSection = $(".selectSection option:selected").val();
       let fullURL = `${NYT_API_LINK}${$searchedSection}${NYT_API_LAST_PART}${NYT_KEY}`
 
       $.ajax({
@@ -40,29 +40,29 @@ $(document).ready(function () {
             let $ts = $('.topStories')
             $ts.html("");
 
-            let $titleSelectElement = `<h6 id="titleSubSection">Choose a sub-section</h6>`;
-            let $selectElement = `<select name="subSections" id="selectSubSection"></select>`;
+            let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section</h6>`;
+            let $selectElement = `<select name="subSections" class="selectSubSection"></select>`;
 
-            $('#titleSubSection').next().remove();
+            $('.titleSubSection').next().remove();
 
-            if ($('#selectSection').next().hasClass('topStories')) {
+            if ($('.selectSection').next().hasClass('topStories')) {
                // Do Nothing;
             }
             else {
-               $('#selectSection').next().remove();
+               $('.selectSection').next().remove();
             }
 
-            $('#selectSection').after($titleSelectElement + $selectElement);
-            $('#selectSubSection').append(`<option value="All">All</option>`);
+            $('.selectSection').after($titleSelectElement + $selectElement);
+            $('.selectSubSection').append(`<option value="All">All</option>`);
 
             $.each($.distinct(subSections), function (i, v) {
 
-               $('#selectSubSection').append(`<option value="${v}">${v}</option>`)
+               $('.selectSubSection').append(`<option value="${v}">${v}</option>`)
             })
 
-            $("#selectSubSection").on("change", function (event) {
+            $(".selectSubSection").on("change", function (event) {
 
-               let $subSectionSelected = $("#selectSubSection option:selected").val();
+               let $subSectionSelected = $(".selectSubSection option:selected").val();
                $ts.html("");
                //    // let txt = $(event.target).html();
                console.log(`You clicked on ${$searchedSection} and on `);
@@ -100,9 +100,7 @@ $(document).ready(function () {
                   return imgURL;
                }
 
-
-
-               function setArticles(index, article, sectionTag) {
+               function setArticles(index, article, sectionTag) { 
                   let img = "";
 
                   img = checkImg(article);
