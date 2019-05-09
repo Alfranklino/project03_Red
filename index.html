@@ -2,20 +2,20 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+  
+  <link rel="stylesheet" href="css/selectric.css"> 
 </head>
 
 <body>
 
   <!-- <button>Get Login Name</button>
   <p class="user-name"></p> -->
-<h6>Choose a section:</h6>
-
+  <h6 class="mainTitle">Choose a section:</h6>
   <select name="sections" class="selectSection">
     <option value="selections...">Selections...</option>
     <option value="arts">Arts</option>
@@ -48,18 +48,23 @@
   <!-- <select name="subSections" id="selectSubSection"></select> -->
 
   <section class="topStories">
-      <!-- This part has to be replaced by json vars!!! -->
-      <!-- <button type=""></button> -->
-      <!-- <article>
+    <!-- This part has to be replaced by json vars!!! -->
+    <!-- <button type=""></button> -->
+    <!-- <article>
           <p></p>
       </article> -->
-      
+
   </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+    integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
     <script src="js/app.js"></script>
-    <script src="js/jquery.arrayUtilities.min.js"></script>
+    <script src="js/jquery.selectric.js"></script> 
+    
+  
+  <!-- <script src="js/jquery.nice-select.js"></script>  -->
+  <script src="js/jquery.arrayUtilities.min.js"></script>
 </body>
 
 </html>

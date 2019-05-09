@@ -1,11 +1,13 @@
 //document.addEventListener("DOMContentLoaded", function () {} === the same as the line below...
 $(document).ready(function () {
 
-
    const NYT_API_LINK = "https://api.nytimes.com/svc/topstories/v2/"
    const NYT_API_LAST_PART = ".json?api-key="
    const NYT_KEY = "WJGgFUA46EgQAmONzRmsZ10lzaNOd9I1"
    const IMG_REPLACE = "http://jewel1067.com/wp-content/uploads/news.jpg"
+
+
+   $('select').selectric();
 
    $(".selectSection").on("change", function () {
 
@@ -15,6 +17,7 @@ $(document).ready(function () {
       //       // Here is the succes property wjich we used in the Ajax form (let's see exo-17-1)
       //    })
       let $searchedSection = $(".selectSection option:selected").val();
+
       let fullURL = `${NYT_API_LINK}${$searchedSection}${NYT_API_LAST_PART}${NYT_KEY}`
 
       $.ajax({
@@ -37,7 +40,7 @@ $(document).ready(function () {
                //  $('.topStories').append($btn);
             });
 
-            let $ts = $('.topStories')
+            let $ts = $('.topStories');
             $ts.html("");
 
             let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section</h6>`;
@@ -45,21 +48,23 @@ $(document).ready(function () {
 
             $('.titleSubSection').next().remove();
 
-            if ($('.selectSection').next().hasClass('topStories')) {
+            if ($('.mainTitle').next().next().hasClass('topStories')) {
                // Do Nothing;
             }
             else {
-               $('.selectSection').next().remove();
+               $('.mainTitle').next().next().remove();
             }
 
-            $('.selectSection').after($titleSelectElement + $selectElement);
+            $('.mainTitle').next().after($titleSelectElement + $selectElement);
+
+            console.log($('.mainTitle').next());
             $('.selectSubSection').append(`<option value="All">All</option>`);
 
             $.each($.distinct(subSections), function (i, v) {
 
                $('.selectSubSection').append(`<option value="${v}">${v}</option>`)
             })
-
+            $('select').selectric('refresh'); //SELECTRIC
             $(".selectSubSection").on("change", function (event) {
 
                let $subSectionSelected = $(".selectSubSection option:selected").val();
@@ -82,9 +87,9 @@ $(document).ready(function () {
                            imgURL = IMG_REPLACE;
                            break;
                         }
-                        else if(pArt.multimedia[index - 1].url === ""){ //index !== 0 and url is empty, Then continue.
+                        else if (pArt.multimedia[index - 1].url === "") { //index !== 0 and url is empty, Then continue.
                            imgURL = IMG_REPLACE;
-                        }                        
+                        }
                         else {
                            imgURL = pArt.multimedia[index - 1].url;
                            test = index - 1;
@@ -103,7 +108,7 @@ $(document).ready(function () {
                   return imgURL;
                }
 
-               function setArticles(index, article, sectionTag) { 
+               function setArticles(index, article, sectionTag) {
                   let img = "";
 
                   img = checkImg(article);
@@ -134,55 +139,55 @@ $(document).ready(function () {
                   }
                })
                console.log(num);
-               
+
             })
 
          });
 
-         $(".topStories").on("mouseover", ".eachArticle", function(event){
-            // let str = $(event.target).find('p').html();
-            // console.log(str);
-            let $str = $(event.target).find('p');            
-            // $(event.target).find('p').show();
-            $str.removeClass("moveDownx");
-            $str.addClass("moveUpx");
-            $str.removeClass("initialShown");
-         });
+      $(".topStories").on("mouseover", ".eachArticle", function (event) {
+         // let str = $(event.target).find('p').html();
+         // console.log(str);
+         let $str = $(event.target).find('p');
+         // $(event.target).find('p').show();
+         $str.removeClass("moveDownx");
+         $str.addClass("moveUpx");
+         $str.removeClass("initialShown");
+      });
 
-         $(".topStories").on("mouseenter", "p", function(event){
-            // let str = $(event.target).find('p').html();
-            // console.log(str);
-            let $str = $(event.target);            
-            // $(event.target).find('p').show();
-            $str.removeClass("moveDownx");
-            $str.addClass("moveUpx");
-            $str.removeClass("initialShown");
-         });
-        
+      $(".topStories").on("mouseenter", "p", function (event) {
+         // let str = $(event.target).find('p').html();
+         // console.log(str);
+         let $str = $(event.target);
+         // $(event.target).find('p').show();
+         $str.removeClass("moveDownx");
+         $str.addClass("moveUpx");
+         $str.removeClass("initialShown");
+      });
 
-            $(".topStories").on("mouseleave", ".eachArticle", function(event){
-               // let str = $(event.target).find('p').html();
-               // console.log(str);
-               let $str = $(event.target).find('p');
-               $str.removeClass("moveUpx");            
-               $str.addClass("moveDownx");
-               $str.addClass("initialShown");            
-               // $(event.target).find('p').hide();
-            });
 
-            $(".topStories").on("mouseleave", "p", function(event){
-               // let str = $(event.target).find('p').html();
-               // console.log(str);
-               let $str = $(event.target);
-               $str.removeClass("moveUpx");            
-               $str.addClass("moveDownx");
-               $str.addClass("initialShown");            
-               // $(event.target).find('p').hide();
-            });
+      $(".topStories").on("mouseleave", ".eachArticle", function (event) {
+         // let str = $(event.target).find('p').html();
+         // console.log(str);
+         let $str = $(event.target).find('p');
+         $str.removeClass("moveUpx");
+         $str.addClass("moveDownx");
+         $str.addClass("initialShown");
+         // $(event.target).find('p').hide();
+      });
 
-        
+      $(".topStories").on("mouseleave", "p", function (event) {
+         // let str = $(event.target).find('p').html();
+         // console.log(str);
+         let $str = $(event.target);
+         $str.removeClass("moveUpx");
+         $str.addClass("moveDownx");
+         $str.addClass("initialShown");
+         // $(event.target).find('p').hide();
+      });
 
-         
+
+
+
    });
 
 
