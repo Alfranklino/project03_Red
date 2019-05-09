@@ -1,14 +1,65 @@
-@keyframes move {
+@keyframes moveUp {
   0% {
-    transform: translate(0px, -50px);
+    
+    transform: translate(0px, 100px);
+    opacity: 0;
   }
 
-  // 100% {
-  //   transform: translate(0px, 50px);
-  // }
-  
+  50% {
+    transform: translate(0px, -75px);
+    // display: unset;
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+    // display: unset;
+    opacity: 1;
+  }
 }
 
+@keyframes moveDown {
+  0% {
+    // transform: translate(0px, -25px);
+    opacity: 1;
+  }
+
+  50% {
+    // transform: translate(0px, 125px);
+    // display: unset;
+    opacity: 0.5;
+  }
+
+  100% {
+    // transform: translate(0px, -100px);
+    // display: unset;
+    opacity: 0;
+    
+    
+  }
+}
+
+.initialShown {
+  opacity: 0;  
+}
+
+.moveUpx {
+  animation-name: moveUp;
+  animation-duration: 1s;
+  // animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-delay: initial;
+  animation-timing-function: ease-in-out;
+}
+
+.moveDownx {
+  animation-name: moveDown;
+  animation-duration: 1s;
+  // animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-delay: initial;
+  animation-timing-function: linear;
+}
 
 body {
   background-color: black;
@@ -22,7 +73,12 @@ body {
   // flex-wrap: wrap;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 3px;
+}
 
+.eachArticle {
+//   padding-bottom: 2px;
+//   padding-left: 2px;
+//   padding-right: 2px;
 }
 
 a {
@@ -30,23 +86,22 @@ a {
   text-decoration: none;
   color: white;
   display: inline;
-  
 }
 // TODO: Code to remove and replace by jquery+css3
-a:hover{
-  animation-name: move;
-  animation-duration: 1s;
-  // animation-direction: alternate;
-  animation-iteration-count: 1;
-  animation-delay: initial;
-  animation-timing-function: ease-in-out;
-}
+// a:hover{
+//   animation-name: move;
+//   animation-duration: 1s;
+//   // animation-direction: alternate;
+//   animation-iteration-count: 1;
+//   animation-delay: initial;
+//   animation-timing-function: ease-in-out;
+// }
 
 @media only screen and (min-width: 480px) {
   // .eachArticle {
   //   width: 100%;
   // }
-  .topStories{
+  .topStories {
     grid-template-columns: 1fr;
   }
 }
@@ -54,7 +109,7 @@ a:hover{
   //   .eachArticle {
   //   width: 33%;
   // }
-  .topStories{
+  .topStories {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -62,7 +117,7 @@ a:hover{
   //   .eachArticle {
   //   width: 25%;
   // }
-  .topStories{
+  .topStories {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

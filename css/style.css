@@ -1,8 +1,48 @@
-@keyframes move {
+@keyframes moveUp {
   0% {
-    transform: translate(0px, -50px);
+    transform: translate(0px, 100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(0px, -75px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0px, 0px);
+    opacity: 1;
   }
 }
+@keyframes moveDown {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.initialShown {
+  opacity: 0;
+}
+
+.moveUpx {
+  animation-name: moveUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: initial;
+  animation-timing-function: ease-in-out;
+}
+
+.moveDownx {
+  animation-name: moveDown;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: initial;
+  animation-timing-function: linear;
+}
+
 body {
   background-color: black;
   color: white;
@@ -21,14 +61,6 @@ a {
   text-decoration: none;
   color: white;
   display: inline;
-}
-
-a:hover {
-  animation-name: move;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-delay: initial;
-  animation-timing-function: ease-in-out;
 }
 
 @media only screen and (min-width: 480px) {

@@ -72,7 +72,7 @@ $(document).ready(function () {
 
 
                function checkImg(pArt) {
-                  let imgURL = "..";
+                  let imgURL = IMG_REPLACE;
                   test = 0;
 
                   for (let index = pArt.multimedia.length - 1; index >= 0; index--) {
@@ -82,6 +82,9 @@ $(document).ready(function () {
                            imgURL = IMG_REPLACE;
                            break;
                         }
+                        else if(pArt.multimedia[index - 1].url === ""){ //index !== 0 and url is empty, Then continue.
+                           imgURL = IMG_REPLACE;
+                        }                        
                         else {
                            imgURL = pArt.multimedia[index - 1].url;
                            test = index - 1;
@@ -106,7 +109,7 @@ $(document).ready(function () {
                   img = checkImg(article);
                   // TODO: Fix the flex prop here...
                   // sectionTag.append(`<a href="${article.url}"><article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article></a>`);
-                  sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}"><p class="abstract">${article.abstract}</p></a></article>`);
+                  sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}"><p class="abstract initialShown">${article.abstract}</p></a></article>`);
                   // sectionTag.append(`<article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article>`);
                   $(`.art${index}`).css("background-image", `url("${img}")`);
                   $(`.art${index}`).css("background-size", 'cover');
@@ -118,8 +121,6 @@ $(document).ready(function () {
                }
 
                $.each(data.results, function (i, v) {
-
-
 
                   if ($subSectionSelected === v.section) {
                      num += 1;
@@ -137,6 +138,51 @@ $(document).ready(function () {
             })
 
          });
+
+         $(".topStories").on("mouseover", ".eachArticle", function(event){
+            // let str = $(event.target).find('p').html();
+            // console.log(str);
+            let $str = $(event.target).find('p');            
+            // $(event.target).find('p').show();
+            $str.removeClass("moveDownx");
+            $str.addClass("moveUpx");
+            $str.removeClass("initialShown");
+         });
+
+         $(".topStories").on("mouseenter", "p", function(event){
+            // let str = $(event.target).find('p').html();
+            // console.log(str);
+            let $str = $(event.target);            
+            // $(event.target).find('p').show();
+            $str.removeClass("moveDownx");
+            $str.addClass("moveUpx");
+            $str.removeClass("initialShown");
+         });
+        
+
+            $(".topStories").on("mouseleave", ".eachArticle", function(event){
+               // let str = $(event.target).find('p').html();
+               // console.log(str);
+               let $str = $(event.target).find('p');
+               $str.removeClass("moveUpx");            
+               $str.addClass("moveDownx");
+               $str.addClass("initialShown");            
+               // $(event.target).find('p').hide();
+            });
+
+            $(".topStories").on("mouseleave", "p", function(event){
+               // let str = $(event.target).find('p').html();
+               // console.log(str);
+               let $str = $(event.target);
+               $str.removeClass("moveUpx");            
+               $str.addClass("moveDownx");
+               $str.addClass("initialShown");            
+               // $(event.target).find('p').hide();
+            });
+
+        
+
+         
    });
 
 
