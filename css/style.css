@@ -56,6 +56,10 @@ body {
   grid-gap: 3px;
 }
 
+p {
+  text-align: center;
+}
+
 a {
   cursor: pointer;
   text-decoration: none;
