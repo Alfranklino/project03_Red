@@ -22,125 +22,139 @@ $(document).ready(function () {
 
       $.ajax({
          method: 'GET',
-         url: fullURL
+         url: fullURL,
+         success: function () {
+            $('.loader').append("<img src='images/ajax-loader.gif' alt='loading'>")
+         }
       })
 
 
          .done(function (data) {
 
-            console.log(data);
-            let subSections = [];
-            $.each(data.results, function (index, value) {
-               // let subsection1 = data.results[index].section;
+            setTimeout(function () {
+               $('.loader').html("");
+               console.log(data);
+               let subSections = [];
+               $.each(data.results, function (index, value) {
+                  // let subsection1 = data.results[index].section;
 
-               subSections.push(data.results[index].section)
+                  subSections.push(data.results[index].section)
 
-               //  console.log(subsection1);
-               //  let $btn = `<button>${subsection1}</button>`;
-               //  $('.topStories').append($btn);
-            });
+                  //  console.log(subsection1);
+                  //  let $btn = `<button>${subsection1}</button>`;
+                  //  $('.topStories').append($btn);
+               });
 
-            let $ts = $('.topStories');
-            $ts.html("");
-
-            let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section</h6>`;
-            let $selectElement = `<select name="subSections" class="selectSubSection"></select>`;
-
-            $('.titleSubSection').next().remove();
-
-            if ($('.mainTitle').next().next().hasClass('topStories')) {
-               // Do Nothing;
-            }
-            else {
-               $('.mainTitle').next().next().remove();
-            }
-
-            $('.mainTitle').next().after($titleSelectElement + $selectElement);
-
-            console.log($('.mainTitle').next());
-            $('.selectSubSection').append(`<option value="All">All</option>`);
-
-            $.each($.distinct(subSections), function (i, v) {
-
-               $('.selectSubSection').append(`<option value="${v}">${v}</option>`)
-            })
-            $('select').selectric('refresh'); //SELECTRIC
-            $(".selectSubSection").on("change", function (event) {
-
-               let $subSectionSelected = $(".selectSubSection option:selected").val();
+               let $ts = $('.topStories');
                $ts.html("");
-               //    // let txt = $(event.target).html();
-               console.log(`You clicked on ${$searchedSection} and on `);
-               console.log(`You clicked on ${$subSectionSelected}`);
 
-               let num = 0;
+               let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section</h6>`;
+               let $selectElement = `<select name="subSections" class="selectSubSection"></select>`;
+
+               $('.titleSubSection').next().remove();
+
+               if ($('.mainTitle').next().next().hasClass('topStories')) {
+                  // Do Nothing;
+               }
+               else {
+                  $('.mainTitle').next().next().remove();
+               }
+
+               $('.mainTitle').next().after($titleSelectElement + $selectElement);
+
+               console.log($('.mainTitle').next());
+               $('.selectSubSection').append(`<option value="All">All</option>`);
+
+               $.each($.distinct(subSections), function (i, v) {
+
+                  $('.selectSubSection').append(`<option value="${v}">${v}</option>`)
+               })
+               
+               $(".mainTitle").css("grid-row", "2/3");               
+               $(".selectric-selectSection").css("grid-row", "3/4");
+
+               $('select').selectric('refresh'); //SELECTRIC
+               $(".selectSubSection").on("change", function (event) {
+
+                  let $subSectionSelected = $(".selectSubSection option:selected").val();
+                  $ts.html("");
+                  //    // let txt = $(event.target).html();
+                  console.log(`You clicked on ${$searchedSection} and on `);
+                  console.log(`You clicked on ${$subSectionSelected}`);
+
+                  let num = 0;
 
 
-               function checkImg(pArt) {
-                  let imgURL = IMG_REPLACE;
-                  test = 0;
+                  function checkImg(pArt) {
+                     let imgURL = IMG_REPLACE;
+                     test = 0;
 
-                  for (let index = pArt.multimedia.length - 1; index >= 0; index--) {
-                     if (pArt.multimedia[index].url === "") {
-                        //Choose imgURL[index-1];
-                        if (index === 0) {
-                           imgURL = IMG_REPLACE;
-                           break;
-                        }
-                        else if (pArt.multimedia[index - 1].url === "") { //index !== 0 and url is empty, Then continue.
-                           imgURL = IMG_REPLACE;
+                     for (let index = pArt.multimedia.length - 1; index >= 0; index--) {
+                        if (pArt.multimedia[index].url === "") {
+                           //Choose imgURL[index-1];
+                           if (index === 0) {
+                              imgURL = IMG_REPLACE;
+                              break;
+                           }
+                           else if (pArt.multimedia[index - 1].url === "") { //index !== 0 and url is empty, Then continue.
+                              imgURL = IMG_REPLACE;
+                           }
+                           else {
+                              imgURL = pArt.multimedia[index - 1].url;
+                              test = index - 1;
+                              break;
+                           }
+
                         }
                         else {
-                           imgURL = pArt.multimedia[index - 1].url;
-                           test = index - 1;
+                           //Choose imgURL[];
+                           imgURL = pArt.multimedia[index].url;
+                           test = index;
                            break;
                         }
-
                      }
-                     else {
-                        //Choose imgURL[];
-                        imgURL = pArt.multimedia[index].url;
-                        test = index;
-                        break;
+                     console.log(`pArt.multimedia[${test}]`);
+                     return imgURL;
+                  }
+
+                  function setArticles(index, article, sectionTag) {
+                     let img = "";
+
+                     img = checkImg(article);
+                     // TODO: Fix the flex prop here...
+                     // sectionTag.append(`<a href="${article.url}"><article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article></a>`);
+                     sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}"><p class="abstract initialShown">${article.abstract}</p></a></article>`);
+                     // sectionTag.append(`<article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article>`);
+                     $(`.art${index}`).css("background-image", `url("${img}")`);
+                     $(`.art${index}`).css("background-size", 'cover');
+                     $(`.art${index}`).css("background-position", 'center');
+                     $(`.art${index}`).css('height', "400px");
+                     $(`.art${index}`).css('display', "flex");
+                     $(`.art${index}`).css('align-items', "flex-end");
+                     $(`.art${index} p`).css("background-color", "rgba(0, 0, 0, 0.6)");
+                     $(`.art${index} p`).css("margin-bottom", "0");
+                  }
+
+                  $.each(data.results, function (i, v) {
+
+                     if ($subSectionSelected === v.section) {
+                        num += 1;
+
+                        setArticles(i, v, $ts);
                      }
-                  }
-                  console.log(`pArt.multimedia[${test}]`);
-                  return imgURL;
-               }
+                     if ($subSectionSelected === 'All') {
+                        num += 1;
 
-               function setArticles(index, article, sectionTag) {
-                  let img = "";
+                        setArticles(i, v, $ts);
+                     }
+                  })
+                  console.log(num);
 
-                  img = checkImg(article);
-                  // TODO: Fix the flex prop here...
-                  // sectionTag.append(`<a href="${article.url}"><article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article></a>`);
-                  sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}"><p class="abstract initialShown">${article.abstract}</p></a></article>`);
-                  // sectionTag.append(`<article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article>`);
-                  $(`.art${index}`).css("background-image", `url("${img}")`);
-                  $(`.art${index}`).css("background-size", 'cover');
-                  $(`.art${index}`).css('height', "400px");
-                  $(`.art${index}`).css('display', "flex");
-                  $(`.art${index}`).css('align-items', "flex-end");
-                  $(`.art${index} p`).css("background-color", "rgba(0, 0, 0, 0.6)");
-                  $(`.art${index} p`).css("margin-bottom", "0");
-               }
-
-               $.each(data.results, function (i, v) {
-
-                  if ($subSectionSelected === v.section) {
-                     num += 1;
-
-                     setArticles(i, v, $ts);
-                  }
-                  if ($subSectionSelected === 'All') {
-                     num += 1;
-
-                     setArticles(i, v, $ts);
-                  }
                })
-               console.log(num);
+            }, 200)
 
-            })
+
+
 
          });
 

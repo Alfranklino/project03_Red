@@ -13,7 +13,7 @@
 }
 
 .selectric {
-  border: 1px solid #FF0000;
+  border: 1px solid rgb(0, 0, 0);
   background: #F8F8F8;
   position: relative;
   border-radius: 7px;
@@ -34,17 +34,18 @@
 .selectric .button {
   /* background: ; */
   border-radius: 0px;
-  display: none;
+  /* display: none; */
   position: absolute;
   right: undefinedpx;
   top: 0;
   bottom: 0;
+  right:10px;
   margin: auto;
   width: 38px;
   height: 38px;
   color: #FF0000;
   text-align: center;
-  opacity: 0;
+  opacity: 1;
   font: 0/0 a;
   *font: 38px/38px Lucida Sans Unicode, Arial Unicode MS, Arial;
 }
@@ -60,7 +61,7 @@
   width: 0;
   height: 0;
   border: 4px solid transparent;
-  border-top-color: #FF0000;
+  border-top-color: rgb(0, 0, 0);
   border-bottom: none;
 }
 

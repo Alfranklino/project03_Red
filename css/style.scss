@@ -27,7 +27,7 @@
   50% {
     // transform: translate(0px, 125px);
     // display: unset;
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   100% {
@@ -64,19 +64,24 @@
 body {
   background-color: black;
   color: rgb(255, 255, 255);
-  text-align: center;
+  // text-align: center;
 }
+
+
+
+
 
 .topStories {
   width: 100%;
   display: grid;
   // flex-wrap: wrap;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 3px;
 }
 
 p{
   text-align: center;
+  width: 100%;
 }
 
 .eachArticle {
@@ -89,17 +94,10 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: white;
-  display: inline;
+  // display: inline;
+  width: 100%;
 }
-// TODO: Code to remove and replace by jquery+css3
-// a:hover{
-//   animation-name: move;
-//   animation-duration: 1s;
-//   // animation-direction: alternate;
-//   animation-iteration-count: 1;
-//   animation-delay: initial;
-//   animation-timing-function: ease-in-out;
-// }
+
 
 @media only screen and (min-width: 480px) {
   // .eachArticle {
@@ -113,6 +111,40 @@ a {
   //   .eachArticle {
   //   width: 33%;
   // }
+  
+  .logo-select{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 3fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr ;
+  
+  }
+
+  .logo{
+    grid-row: 1/7;
+    grid-column: 2/3;
+    align-self: center;
+  }
+  .mainTitle{
+    grid-row: 3/4;
+    grid-column: 3/4;
+  }
+  
+  .selectric-selectSection{
+    grid-row: 4/5;
+    grid-column: 3/4;  
+  }
+  
+  .titleSubSection{
+    grid-row: 4/5;
+    grid-column: 3/4;  
+  }
+  
+  .selectric-selectSubSection{
+    grid-row: 5/6;
+    grid-column: 3/4;  
+  }
+  
+  
   .topStories {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -121,6 +153,40 @@ a {
   //   .eachArticle {
   //   width: 25%;
   // }
+
+  .logo-select{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr ;
+  
+  }
+
+  .logo{
+    grid-row: 1/7;
+    grid-column: 1/2;
+    align-self: center;
+  }
+  .mainTitle{
+    grid-row: 3/4;
+    grid-column: 2/3;
+  }
+  
+  .selectric-selectSection{
+    grid-row: 4/5;
+    grid-column: 2/3;  
+  }
+  
+  .titleSubSection{
+    grid-row: 4/5;
+    grid-column: 2/3;  
+  }
+  
+  .selectric-selectSubSection{
+    grid-row: 5/6;
+    grid-column: 2/3;  
+  }
+
+
   .topStories {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
