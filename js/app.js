@@ -48,7 +48,7 @@ $(document).ready(function () {
                let $ts = $('.topStories');
                $ts.html("");
 
-               let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section</h6>`;
+               let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section:</h6>`;
                let $selectElement = `<select name="subSections" class="selectSubSection"></select>`;
 
                $('.titleSubSection').next().remove();
@@ -69,9 +69,11 @@ $(document).ready(function () {
 
                   $('.selectSubSection').append(`<option value="${v}">${v}</option>`)
                })
-               
-               $(".mainTitle").css("grid-row", "2/3");               
+
+               // Repositioning this part into mediaqueries
+               $(".mainTitle").css("grid-row", "2/3");
                $(".selectric-selectSection").css("grid-row", "3/4");
+               //End of repositioning
 
                $('select').selectric('refresh'); //SELECTRIC
                $(".selectSubSection").on("change", function (event) {

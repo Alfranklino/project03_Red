@@ -2,7 +2,7 @@
   Selectric
 ======================================*/
 .selectric-wrapper {
-  display: inline-block;
+  display: block;
   width: 150px;
   position: relative;
   cursor: pointer;
