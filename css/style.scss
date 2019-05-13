@@ -46,7 +46,7 @@
   }
 
   100% {
-    height: 200px;
+    height: 250px;
   }
 }
 
@@ -106,7 +106,7 @@ body {
 
 .logo-select {
   display: grid;
-  grid-template-columns: 3fr 1fr 3fr;
+  grid-template-columns: 3fr minmax(155px, 1fr) 3fr;
   grid-template-rows: 3fr 35px 50px 35px 50px 50px;
   height: 400px;
   margin-bottom: 100px;
@@ -184,6 +184,7 @@ a {
   .logo-select {
     align-items: center; //Just this mq
     justify-items: center; //Just this mq
+    margin-bottom: 100px;
   }
 
   .mainTitle,
@@ -195,6 +196,28 @@ a {
   .selectric-selectSubSection {
     align-self: start;
   }
+
+  .animHeader {
+    animation-name: animHeader;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-delay: initial;
+    animation-timing-function: ease-in-out;
+    height: 250px;
+    
+  }
+
+  .animLogo {
+    animation-name: animLogo;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-delay: initial;
+    animation-timing-function: ease-in-out;
+    width: 150px;
+  }
+
 }
 @media only screen and (min-width: 600px) {
   //   .eachArticle {
@@ -235,6 +258,27 @@ a {
   .topStories {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .animHeader {
+    animation-name: animHeader;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-delay: initial;
+    animation-timing-function: ease-in-out;
+    height: 200px;
+  }
+
+  .animLogo {
+    animation-name: animLogo;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-delay: initial;
+    animation-timing-function: ease-in-out;
+    width: 150px;
+  }
+
 }
 @media only screen and (min-width: 1240px) {
   //   .eachArticle {
