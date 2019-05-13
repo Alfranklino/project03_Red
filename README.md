@@ -1,6 +1,6 @@
 # Instanews
 
-Instanews is an application that helps users to stay awared with the most recent top stories of the New York Times. That application works through an API provided by the [New York Times]  (https://developer.nytimes.com/) with no fees. 
+Instanews is an application that helps users to stay awared with the most recent top stories of the New York Times. That application works through an API provided by the [New York Times](https://developer.nytimes.com/) with no fees. 
 > Our journalists deliver the facts,
 *Official [Home Page](https://www.nytimes.com/) of the New York Times*
 
