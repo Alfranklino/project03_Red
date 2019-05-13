@@ -35,7 +35,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Franklin MAMVOULA** - *Implementation and testing.*, 
+* **Franklin Mamvoula** - *Implementation and testing.*, 
 * **Rob Hyrkiel** - *Guidelines and Design*
 
 
