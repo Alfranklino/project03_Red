@@ -1,3 +1,16 @@
+@import './fonts';
+@import './reset';
+@import './selectric';
+
+$bkg-color: #000000;
+$main-f-color: #ffffff;
+$main-font: "OpenSansLight";
+$main-f-size: 16px;
+$footer-f-color: #c2c2c2;
+$newHeightHeader: 250px;
+$newWidthLogo: 150px;
+
+
 @keyframes moveUp {
   0% {
     transform: translate(0px, 100px);
@@ -46,7 +59,7 @@
   }
 
   100% {
-    height: 250px;
+    height: $newHeightHeader;
   }
 }
 
@@ -60,7 +73,7 @@
   }
 
   100% {
-    width: 150px;
+    width: $newWidthLogo;
   }
 }
 
@@ -87,12 +100,12 @@
 }
 
 body {
-  background-color: black;
-  color: rgb(255, 255, 255);
+  background-color: $bkg-color;
+  color: $main-f-color;
   // text-align: center;
   height: 100%;
-  font-family: "Raleway-Light";
-  font-size: 16px;
+  font-family: $main-font;
+  font-size: $main-f-size;
 }
 
 
@@ -152,11 +165,11 @@ p {
 
 footer {
   display: grid;
-  grid-template-columns: 0px 1fr; //This gap of 50px could be a var used inside the items
+  grid-template-columns: 0px 1fr; 
   grid-template-rows: 50px;
   justify-items: center;
   align-items: center;
-  color: #c2c2c2; //Use as var...
+  color: $footer-f-color; //Use as var...
 }
 
 h5 {
@@ -200,29 +213,27 @@ a {
   .animHeader {
     animation-name: animHeader;
     animation-duration: 1s;
-    // animation-direction: alternate;
+    
     animation-iteration-count: 1;
     animation-delay: initial;
     animation-timing-function: ease-in-out;
-    height: 250px;
+    height: $newHeightHeader;
     
   }
 
   .animLogo {
     animation-name: animLogo;
     animation-duration: 1s;
-    // animation-direction: alternate;
+    
     animation-iteration-count: 1;
     animation-delay: initial;
     animation-timing-function: ease-in-out;
-    width: 150px;
+    width: $newWidthLogo;
   }
 
 }
 @media only screen and (min-width: 600px) {
-  //   .eachArticle {
-  //   width: 33%;
-  // }
+  
 
   .logo-select {
     display: grid;
@@ -262,36 +273,31 @@ a {
   .animHeader {
     animation-name: animHeader;
     animation-duration: 1s;
-    // animation-direction: alternate;
+    
     animation-iteration-count: 1;
     animation-delay: initial;
     animation-timing-function: ease-in-out;
-    height: 200px;
+    height: $newHeightHeader;
   }
 
   .animLogo {
     animation-name: animLogo;
     animation-duration: 1s;
-    // animation-direction: alternate;
+    
     animation-iteration-count: 1;
     animation-delay: initial;
     animation-timing-function: ease-in-out;
-    width: 150px;
+    width: $newWidthLogo;
   }
 
 }
 @media only screen and (min-width: 1240px) {
-  //   .eachArticle {
-  //   width: 25%;
-  // }
+
 
   .logo-select {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
-    //Just this mq
-    // justify-items: center; //Just this mq
-    // height: 300px;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;    
   }
 
   .logo {
@@ -342,7 +348,7 @@ a {
     animation-iteration-count: 1;
     animation-delay: initial;
     animation-timing-function: ease-in-out;
-    height: 200px;
+    height: $newHeightHeader;
   }
 
   .animLogo {
@@ -352,7 +358,7 @@ a {
     animation-iteration-count: 1;
     animation-delay: initial;
     animation-timing-function: ease-in-out;
-    width: 150px;
+    width: $newWidthLogo;
   }
 
 }
