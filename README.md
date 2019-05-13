@@ -47,4 +47,3 @@ For the versions available, see the [tags on this repository](https://github.com
 ## License
 
 This project is unlicensed.
-
