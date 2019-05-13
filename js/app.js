@@ -1,4 +1,4 @@
-//document.addEventListener("DOMContentLoaded", function () {} === the same as the line below...
+
 $(document).ready(function () {
 
    const NYT_API_LINK = "https://api.nytimes.com/svc/topstories/v2/"
@@ -11,11 +11,7 @@ $(document).ready(function () {
 
    $(".selectSection").on("change", function () {
 
-      // $.getJSON(`${NYT_API_LINK}` + `${NYT_KEY}`,
-
-      //    function () {
-      //       // Here is the succes property wjich we used in the Ajax form (let's see exo-17-1)
-      //    })
+     
       let $searchedSection = $(".selectSection option:selected").val();
 
       let fullURL = `${NYT_API_LINK}${$searchedSection}${NYT_API_LAST_PART}${NYT_KEY}`
@@ -33,16 +29,14 @@ $(document).ready(function () {
 
             setTimeout(function () {
                $('.loader').html("");
-               console.log(data);
+               // console.log(data);
                let subSections = [];
                $.each(data.results, function (index, value) {
-                  // let subsection1 = data.results[index].section;
+                  
 
                   subSections.push(data.results[index].section)
 
-                  //  console.log(subsection1);
-                  //  let $btn = `<button>${subsection1}</button>`;
-                  //  $('.topStories').append($btn);
+             
                });
 
                let $ts = $('.topStories');
@@ -86,7 +80,7 @@ $(document).ready(function () {
 
                   let $subSectionSelected = $(".selectSubSection option:selected").val();
                   $ts.html("");
-                  //    // let txt = $(event.target).html();
+                  
                   console.log(`You clicked on ${$searchedSection} and on `);
                   console.log(`You clicked on ${$subSectionSelected}`);
 
@@ -129,10 +123,9 @@ $(document).ready(function () {
                      let img = "";
 
                      img = checkImg(article);
-                     // TODO: Fix the flex prop here...
-                     // sectionTag.append(`<a href="${article.url}"><article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article></a>`);
+                     
                      sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}" target="_blank"><p class="abstract initialShown">${article.abstract}</p></a></article>`);
-                     // sectionTag.append(`<article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article>`);
+                    
                      $(`.art${index}`).css("background-image", `url("${img}")`);
                      $(`.art${index}`).css("background-size", 'cover');
                      $(`.art${index}`).css("background-position", 'center');
@@ -173,20 +166,18 @@ $(document).ready(function () {
          });
 
       $(".topStories").on("mouseover", ".eachArticle", function (event) {
-         // let str = $(event.target).find('p').html();
-         // console.log(str);
+      
          let $str = $(event.target).find('p');
-         // $(event.target).find('p').show();
+         
          $str.removeClass("moveDownx");
          $str.addClass("moveUpx");
          $str.removeClass("initialShown");
       });
 
       $(".topStories").on("mouseenter", "p", function (event) {
-         // let str = $(event.target).find('p').html();
-         // console.log(str);
+        
          let $str = $(event.target);
-         // $(event.target).find('p').show();
+         
          $str.removeClass("moveDownx");
          $str.addClass("moveUpx");
          $str.removeClass("initialShown");
@@ -194,23 +185,22 @@ $(document).ready(function () {
 
 
       $(".topStories").on("mouseleave", ".eachArticle", function (event) {
-         // let str = $(event.target).find('p').html();
-         // console.log(str);
+         
+         
          let $str = $(event.target).find('p');
          $str.removeClass("moveUpx");
          $str.addClass("moveDownx");
          $str.addClass("initialShown");
-         // $(event.target).find('p').hide();
+         
       });
 
       $(".topStories").on("mouseleave", "p", function (event) {
-         // let str = $(event.target).find('p').html();
-         // console.log(str);
+     
          let $str = $(event.target);
          $str.removeClass("moveUpx");
          $str.addClass("moveDownx");
          $str.addClass("initialShown");
-         // $(event.target).find('p').hide();
+         
       });
 
 
@@ -220,9 +210,3 @@ $(document).ready(function () {
 
 
 });
-
-// $(".my-list").on("click", ".delete", function (event){
-//    // let $eltToCrossOff = $(event.target).prev().text();
-//    let $eltToCrossOff = $(event.target).prev().css("text-decoration", "line-through");
-//    console.log($eltToCrossOff);
-// });
