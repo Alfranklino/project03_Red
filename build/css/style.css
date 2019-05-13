@@ -1,9 +1,26 @@
 @font-face {
-  font-family: 'Raleway-Light';
-  src: url("Raleway-Light.eot");
-  src: url("Raleway-Light.eot?#iefix") format("embedded-opentype"), url("Raleway-Light.woff2") format("woff2"), url("Raleway-Light.woff") format("woff"), url("Raleway-Light.ttf") format("truetype"), url("Raleway-Light.svg#Raleway-Light") format("svg");
+  font-family: 'OpenSansBold';
+  src: url("OpenSans-Bold.woff2") format("woff2"), url("OpenSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'OpenSansLightItalic';
+  src: url("OpenSansLight-Italic.woff2") format("woff2"), url("OpenSansLight-Italic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url("OpenSans-Light.woff2") format("woff2"), url("OpenSans-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal; }
+
+@font-face {
+  font-family: 'OpenSansBoldItalic';
+  src: url("OpenSans-BoldItalic.woff2") format("woff2"), url("OpenSans-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic; }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -374,10 +391,10 @@ table {
           animation-timing-function: linear; }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: #000000;
+  color: #ffffff;
   height: 100%;
-  font-family: "Raleway-Light";
+  font-family: "OpenSansLight";
   font-size: 16px; }
 
 .topStories {
