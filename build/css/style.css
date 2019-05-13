@@ -42,6 +42,38 @@
   100% {
     opacity: 0; } }
 
+@-webkit-keyframes animHeader {
+  0% {
+    height: 400px; }
+  50% {
+    height: 280px; }
+  100% {
+    height: 200px; } }
+
+@keyframes animHeader {
+  0% {
+    height: 400px; }
+  50% {
+    height: 280px; }
+  100% {
+    height: 200px; } }
+
+@-webkit-keyframes animLogo {
+  0% {
+    width: 220px; }
+  50% {
+    width: 180px; }
+  100% {
+    width: 150px; } }
+
+@keyframes animLogo {
+  0% {
+    width: 220px; }
+  50% {
+    width: 180px; }
+  100% {
+    width: 150px; } }
+
 .initialShown {
   opacity: 0; }
 
@@ -73,7 +105,8 @@ body {
   background-color: black;
   color: white;
   height: 100%;
-  font-family: 'Raleway-Light'; }
+  font-family: "Raleway-Light";
+  font-size: 16px; }
 
 .topStories {
   width: 100%;
@@ -84,7 +117,9 @@ body {
 .logo-select {
   display: grid;
   grid-template-columns: 3fr 1fr 3fr;
-  grid-template-rows: 3fr 35px 50px 35px 50px 50px; }
+  grid-template-rows: 3fr 35px 50px 35px 50px 50px;
+  height: 400px;
+  margin-bottom: 100px; }
 
 .logo {
   grid-row: 1/2;
@@ -119,12 +154,13 @@ p {
 
 footer {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 0px 1fr;
   grid-template-rows: 50px;
   justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center; }
+          align-items: center;
+  color: #c2c2c2; }
 
 h5 {
   grid-column: 2/3;
@@ -221,4 +257,30 @@ a {
   .topStories {
     grid-template-columns: 1fr 1fr 1fr 1fr; }
   footer {
-    justify-items: start; } }
+    grid-template-columns: 50px 1fr;
+    justify-items: start;
+    margin-bottom: 20px; }
+  .animHeader {
+    -webkit-animation-name: animHeader;
+            animation-name: animHeader;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-delay: initial;
+            animation-delay: initial;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    height: 200px; }
+  .animLogo {
+    -webkit-animation-name: animLogo;
+            animation-name: animLogo;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-delay: initial;
+            animation-delay: initial;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    width: 150px; } }

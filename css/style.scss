@@ -36,6 +36,34 @@
   }
 }
 
+@keyframes animHeader {
+  0% {
+    height: 400px;
+  }
+
+  50% {
+    height: 280px;
+  }
+
+  100% {
+    height: 200px;
+  }
+}
+
+@keyframes animLogo {
+  0% {
+    width: 220px;
+  }
+
+  50% {
+    width: 180px;
+  }
+
+  100% {
+    width: 150px;
+  }
+}
+
 .initialShown {
   opacity: 0;
 }
@@ -63,11 +91,11 @@ body {
   color: rgb(255, 255, 255);
   // text-align: center;
   height: 100%;
-  font-family: 'Raleway-Light';
-
-  
-  
+  font-family: "Raleway-Light";
+  font-size: 16px;
 }
+
+
 
 .topStories {
   width: 100%;
@@ -80,6 +108,8 @@ body {
   display: grid;
   grid-template-columns: 3fr 1fr 3fr;
   grid-template-rows: 3fr 35px 50px 35px 50px 50px;
+  height: 400px;
+  margin-bottom: 100px;
 }
 
 .logo {
@@ -120,16 +150,16 @@ p {
   width: 100%;
 }
 
-footer{
+footer {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 0px 1fr; //This gap of 50px could be a var used inside the items
   grid-template-rows: 50px;
   justify-items: center;
   align-items: center;
-  
+  color: #c2c2c2; //Use as var...
 }
 
-h5{
+h5 {
   grid-column: 2/3;
   justify-items: start;
   align-items: center;
@@ -151,7 +181,6 @@ a {
 }
 
 @media only screen and (min-width: 480px) {
-
   .logo-select {
     align-items: center; //Just this mq
     justify-items: center; //Just this mq
@@ -218,6 +247,7 @@ a {
     grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
     //Just this mq
     // justify-items: center; //Just this mq
+    // height: 300px;
   }
 
   .logo {
@@ -255,7 +285,30 @@ a {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  footer{
+  footer {
+    grid-template-columns: 50px 1fr; //This gap of 50px could be a var used inside the items
     justify-items: start;
+    margin-bottom: 20px;
   }
+
+  .animHeader {
+    animation-name: animHeader;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-delay: initial;
+    animation-timing-function: ease-in-out;
+    height: 200px;
+  }
+
+  .animLogo {
+    animation-name: animLogo;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-delay: initial;
+    animation-timing-function: ease-in-out;
+    width: 150px;
+  }
+
 }

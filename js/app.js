@@ -51,6 +51,8 @@ $(document).ready(function () {
                let $titleSelectElement = `<h6 class="titleSubSection">Choose a sub-section:</h6>`;
                let $selectElement = `<select name="subSections" class="selectSubSection"></select>`;
 
+
+               //Remove unecessary elements at the begining
                $('.titleSubSection').next().remove();
 
                if ($('.mainTitle').next().next().hasClass('topStories')) {
@@ -61,14 +63,18 @@ $(document).ready(function () {
                }
 
                $('.mainTitle').next().after($titleSelectElement + $selectElement);
+               //END Remove unecessary elements at the begining
 
+               //Add New Select (for sub-sections) to the header
                console.log($('.mainTitle').next());
                $('.selectSubSection').append(`<option value="All">All</option>`);
 
+               //Add elements to the New Select (for sub-sections)
                $.each($.distinct(subSections), function (i, v) {
 
                   $('.selectSubSection').append(`<option value="${v}">${v}</option>`)
                })
+               //END Add elements to the New Select (for sub-sections)
 
                // Repositioning this part into mediaqueries
                $(".mainTitle").css("grid-row", "2/3");
@@ -151,6 +157,12 @@ $(document).ready(function () {
                      }
                   })
                   console.log(num);
+
+                  //Repositioning of the header
+                  $(".logo-select").addClass("animHeader");
+                  $(".logo").addClass("animLogo");
+                  //END Repositioning of the header
+
 
                })
             }, 200)
