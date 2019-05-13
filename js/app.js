@@ -131,7 +131,7 @@ $(document).ready(function () {
                      img = checkImg(article);
                      // TODO: Fix the flex prop here...
                      // sectionTag.append(`<a href="${article.url}"><article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article></a>`);
-                     sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}"><p class="abstract initialShown">${article.abstract}</p></a></article>`);
+                     sectionTag.append(`<article class="art${index} eachArticle"><a href="${article.url}" target="_blank"><p class="abstract initialShown">${article.abstract}</p></a></article>`);
                      // sectionTag.append(`<article class="art${index} eachArticle"><p class="abstract">${article.abstract}</p></article>`);
                      $(`.art${index}`).css("background-image", `url("${img}")`);
                      $(`.art${index}`).css("background-size", 'cover');
